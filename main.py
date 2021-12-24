@@ -16,9 +16,10 @@ _entries = ' '.join(["entry." + entries[i] + "=" + answers[i] if i == 0 else "&"
 # Adding all parameters together
 request = (str) (url + form + "/formResponse?" + _entries)
 
+session = requests.Session()
 
 for i in range(0, comments):
-    requests.post(request)    
+    session.post(request)    
 
 print("Done!")  
 print(f"{comments} Comments in {time.time() - time1} seconds")
